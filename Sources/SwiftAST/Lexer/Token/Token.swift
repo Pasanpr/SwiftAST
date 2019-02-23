@@ -25,3 +25,21 @@ extension Token: CustomStringConvertible {
     }
 }
 
+extension Token {
+    var isWhitespace: Bool {
+        switch self.type {
+        case .whitespace: return true
+        default: return false
+        }
+    }
+}
+
+extension Array where Element == Token {
+    func strippedWhitespace() -> [Token] {
+        let stripped = self.filter { token in
+            return !token.isWhitespace
+        }
+        
+        return stripped
+    }
+}

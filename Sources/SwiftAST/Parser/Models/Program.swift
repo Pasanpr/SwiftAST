@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal struct Program {
+public struct Program {
     let statements: [Statement]
 }
 
