@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum Punctuation: String,  AutoEquatable {
+public enum Punctuation: String,  AutoEquatable {
     case leftParen = "\u{0028}"
     case rightParen = "\u{0029}"
     case leftCurlyBracket = "\u{007B}"

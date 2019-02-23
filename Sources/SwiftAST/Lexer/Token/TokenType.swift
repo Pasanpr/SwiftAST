@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum TokenType {
+public enum TokenType {
     case whitespace(Whitespace)
     case punctuation(Punctuation)
     case keyword(Keyword)
@@ -16,7 +16,7 @@ internal enum TokenType {
     case identifier(String)
     case eof
     
-    enum Whitespace {
+    public enum Whitespace {
         public enum LineBreak: String, AutoEquatable {
             case carriageReturn = "\u{000D}"
             case newline = "\u{000A}"

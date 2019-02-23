@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum Operator: AutoEquatable, CaseIterable {
+public enum Operator: AutoEquatable, CaseIterable {
     case assignment
     case addition
     case subtraction

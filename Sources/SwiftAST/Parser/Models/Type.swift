@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal indirect enum Type {
+public indirect enum Type {
     case array(Type)
     case dictionary(Type, Type)
     case function

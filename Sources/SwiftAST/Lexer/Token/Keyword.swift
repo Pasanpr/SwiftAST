@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum Keyword: AutoEquatable {
+public enum Keyword: AutoEquatable {
     public enum Declaration: String, AutoEquatable, CaseIterable {
         case `associatedtype`
         case `class`

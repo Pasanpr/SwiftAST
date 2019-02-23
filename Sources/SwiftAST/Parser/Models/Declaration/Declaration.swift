@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum Declaration {
+public enum Declaration {
     case variable(identifier: String, type: Type?, expression: Expression)
     case constant(identifier: String, type: Type?, expression: Expression)
 }

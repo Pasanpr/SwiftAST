@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal struct Token {
+public struct Token {
     let type: TokenType
     let line: Int
     

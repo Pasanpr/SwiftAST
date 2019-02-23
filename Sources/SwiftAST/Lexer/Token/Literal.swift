@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal enum Literal: AutoEquatable {
+public enum Literal: AutoEquatable {
     case integer(Int)
     case floatingPoint(Double)
     case string(String)
