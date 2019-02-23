@@ -24,7 +24,7 @@ import Foundation
  primary-expression → key-path-string-expression
  */
 
-internal enum PrimaryExpression {
+public enum PrimaryExpression {
     /*
      GRAMMAR OF A LITERAL EXPRESSION
      

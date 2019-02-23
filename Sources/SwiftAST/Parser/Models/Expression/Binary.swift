@@ -74,7 +74,7 @@ import Foundation
  primary -> Int | String | Bool | nil
  */
 
-internal enum BinaryExpression {
+public enum BinaryExpression {
     case binary(operator: Token, lhs: Expression, rhs: Expression)
     indirect case assignment(try: Bool?, rhs: BinaryExpression)
     case conditional

@@ -26,13 +26,13 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 // MARK: - AutoEquatable for classes, protocols, structs
 // MARK: - Program AutoEquatable
 extension Program: Equatable {}
-func == (lhs: Program, rhs: Program) -> Bool {
+public func == (lhs: Program, rhs: Program) -> Bool {
     guard lhs.statements == rhs.statements else { return false }
     return true
 }
 // MARK: - Token AutoEquatable
 extension Token: Equatable {}
-func == (lhs: Token, rhs: Token) -> Bool {
+public func == (lhs: Token, rhs: Token) -> Bool {
     guard lhs.type == rhs.type else { return false }
     guard lhs.line == rhs.line else { return false }
     return true
@@ -41,7 +41,7 @@ func == (lhs: Token, rhs: Token) -> Bool {
 // MARK: - AutoEquatable for Enums
 // MARK: - BinaryExpression AutoEquatable
 extension BinaryExpression: Equatable {}
-func == (lhs: BinaryExpression, rhs: BinaryExpression) -> Bool {
+public func == (lhs: BinaryExpression, rhs: BinaryExpression) -> Bool {
     switch (lhs, rhs) {
     case (.binary(let lhs), .binary(let rhs)):
         if lhs.operator != rhs.operator { return false }
@@ -64,7 +64,7 @@ func == (lhs: BinaryExpression, rhs: BinaryExpression) -> Bool {
 }
 // MARK: - Declaration AutoEquatable
 extension Declaration: Equatable {}
-func == (lhs: Declaration, rhs: Declaration) -> Bool {
+public func == (lhs: Declaration, rhs: Declaration) -> Bool {
     switch (lhs, rhs) {
     case (.variable(let lhs), .variable(let rhs)):
         if lhs.identifier != rhs.identifier { return false }
@@ -81,7 +81,7 @@ func == (lhs: Declaration, rhs: Declaration) -> Bool {
 }
 // MARK: - Expression AutoEquatable
 extension Expression: Equatable {}
-func == (lhs: Expression, rhs: Expression) -> Bool {
+public func == (lhs: Expression, rhs: Expression) -> Bool {
     switch (lhs, rhs) {
     case (.prefix(let lhs), .prefix(let rhs)):
         if lhs.operator != rhs.operator { return false }
@@ -99,7 +99,7 @@ func == (lhs: Expression, rhs: Expression) -> Bool {
 }
 // MARK: - Keyword AutoEquatable
 extension Keyword: Equatable {}
-func == (lhs: Keyword, rhs: Keyword) -> Bool {
+public func == (lhs: Keyword, rhs: Keyword) -> Bool {
     switch (lhs, rhs) {
     case (.declaration(let lhs), .declaration(let rhs)):
         return lhs == rhs
@@ -116,7 +116,7 @@ func == (lhs: Keyword, rhs: Keyword) -> Bool {
 }
 // MARK: - Keyword.Declaration AutoEquatable
 extension Keyword.Declaration: Equatable {}
-func == (lhs: Keyword.Declaration, rhs: Keyword.Declaration) -> Bool {
+public func == (lhs: Keyword.Declaration, rhs: Keyword.Declaration) -> Bool {
     switch (lhs, rhs) {
     case (.`associatedtype`, .`associatedtype`):
         return true
@@ -167,7 +167,7 @@ func == (lhs: Keyword.Declaration, rhs: Keyword.Declaration) -> Bool {
 }
 // MARK: - Keyword.Expression AutoEquatable
 extension Keyword.Expression: Equatable {}
-func == (lhs: Keyword.Expression, rhs: Keyword.Expression) -> Bool {
+public func == (lhs: Keyword.Expression, rhs: Keyword.Expression) -> Bool {
     switch (lhs, rhs) {
     case (.`break`, .`break`):
         return true
@@ -208,7 +208,7 @@ func == (lhs: Keyword.Expression, rhs: Keyword.Expression) -> Bool {
 }
 // MARK: - Keyword.Pound AutoEquatable
 extension Keyword.Pound: Equatable {}
-func == (lhs: Keyword.Pound, rhs: Keyword.Pound) -> Bool {
+public func == (lhs: Keyword.Pound, rhs: Keyword.Pound) -> Bool {
     switch (lhs, rhs) {
     case (.available, .available):
         return true
@@ -247,7 +247,7 @@ func == (lhs: Keyword.Pound, rhs: Keyword.Pound) -> Bool {
 }
 // MARK: - Keyword.Statement AutoEquatable
 extension Keyword.Statement: Equatable {}
-func == (lhs: Keyword.Statement, rhs: Keyword.Statement) -> Bool {
+public func == (lhs: Keyword.Statement, rhs: Keyword.Statement) -> Bool {
     switch (lhs, rhs) {
     case (.`as`, .`as`):
         return true
@@ -278,7 +278,7 @@ func == (lhs: Keyword.Statement, rhs: Keyword.Statement) -> Bool {
 }
 // MARK: - Literal AutoEquatable
 extension Literal: Equatable {}
-func == (lhs: Literal, rhs: Literal) -> Bool {
+public func == (lhs: Literal, rhs: Literal) -> Bool {
     switch (lhs, rhs) {
     case (.integer(let lhs), .integer(let rhs)):
         return lhs == rhs
@@ -295,7 +295,7 @@ func == (lhs: Literal, rhs: Literal) -> Bool {
 }
 // MARK: - Operator AutoEquatable
 extension Operator: Equatable {}
-func == (lhs: Operator, rhs: Operator) -> Bool {
+public func == (lhs: Operator, rhs: Operator) -> Bool {
     switch (lhs, rhs) {
     case (.assignment, .assignment):
         return true
@@ -366,7 +366,7 @@ func == (lhs: Operator, rhs: Operator) -> Bool {
 }
 // MARK: - PostfixExpression AutoEquatable
 extension PostfixExpression: Equatable {}
-func == (lhs: PostfixExpression, rhs: PostfixExpression) -> Bool {
+public func == (lhs: PostfixExpression, rhs: PostfixExpression) -> Bool {
     switch (lhs, rhs) {
     case (.primary(let lhs), .primary(let rhs)):
         return lhs == rhs
@@ -393,7 +393,7 @@ func == (lhs: PostfixExpression, rhs: PostfixExpression) -> Bool {
 }
 // MARK: - PrefixExpression AutoEquatable
 extension PrefixExpression: Equatable {}
-func == (lhs: PrefixExpression, rhs: PrefixExpression) -> Bool {
+public func == (lhs: PrefixExpression, rhs: PrefixExpression) -> Bool {
     switch (lhs, rhs) {
     case (.`inout`(let lhs), .`inout`(let rhs)):
         return lhs == rhs
@@ -401,7 +401,7 @@ func == (lhs: PrefixExpression, rhs: PrefixExpression) -> Bool {
 }
 // MARK: - PrimaryExpression AutoEquatable
 extension PrimaryExpression: Equatable {}
-func == (lhs: PrimaryExpression, rhs: PrimaryExpression) -> Bool {
+public func == (lhs: PrimaryExpression, rhs: PrimaryExpression) -> Bool {
     switch (lhs, rhs) {
     case (.identifier(let lhs), .identifier(let rhs)):
         if lhs.0 != rhs.0 { return false }
@@ -434,7 +434,7 @@ func == (lhs: PrimaryExpression, rhs: PrimaryExpression) -> Bool {
 }
 // MARK: - Punctuation AutoEquatable
 extension Punctuation: Equatable {}
-func == (lhs: Punctuation, rhs: Punctuation) -> Bool {
+public func == (lhs: Punctuation, rhs: Punctuation) -> Bool {
     switch (lhs, rhs) {
     case (.leftParen, .leftParen):
         return true
@@ -461,7 +461,7 @@ func == (lhs: Punctuation, rhs: Punctuation) -> Bool {
 }
 // MARK: - Statement AutoEquatable
 extension Statement: Equatable {}
-func == (lhs: Statement, rhs: Statement) -> Bool {
+public func == (lhs: Statement, rhs: Statement) -> Bool {
     switch (lhs, rhs) {
     case (.expression(let lhs), .expression(let rhs)):
         return lhs == rhs
@@ -486,7 +486,7 @@ func == (lhs: Statement, rhs: Statement) -> Bool {
 }
 // MARK: - TokenType AutoEquatable
 extension TokenType: Equatable {}
-func == (lhs: TokenType, rhs: TokenType) -> Bool {
+public func == (lhs: TokenType, rhs: TokenType) -> Bool {
     switch (lhs, rhs) {
     case (.whitespace(let lhs), .whitespace(let rhs)):
         return lhs == rhs
@@ -507,7 +507,7 @@ func == (lhs: TokenType, rhs: TokenType) -> Bool {
 }
 // MARK: - TokenType.Whitespace AutoEquatable
 extension TokenType.Whitespace: Equatable {}
-func == (lhs: TokenType.Whitespace, rhs: TokenType.Whitespace) -> Bool {
+public func == (lhs: TokenType.Whitespace, rhs: TokenType.Whitespace) -> Bool {
     switch (lhs, rhs) {
     case (.whitespaceItem(let lhs), .whitespaceItem(let rhs)):
         return lhs == rhs
@@ -522,7 +522,7 @@ func == (lhs: TokenType.Whitespace, rhs: TokenType.Whitespace) -> Bool {
 }
 // MARK: - TokenType.Whitespace.LineBreak AutoEquatable
 extension TokenType.Whitespace.LineBreak: Equatable {}
-func == (lhs: TokenType.Whitespace.LineBreak, rhs: TokenType.Whitespace.LineBreak) -> Bool {
+public func == (lhs: TokenType.Whitespace.LineBreak, rhs: TokenType.Whitespace.LineBreak) -> Bool {
     switch (lhs, rhs) {
     case (.carriageReturn, .carriageReturn):
         return true
@@ -533,7 +533,7 @@ func == (lhs: TokenType.Whitespace.LineBreak, rhs: TokenType.Whitespace.LineBrea
 }
 // MARK: - TokenType.Whitespace.WhitespaceItem AutoEquatable
 extension TokenType.Whitespace.WhitespaceItem: Equatable {}
-func == (lhs: TokenType.Whitespace.WhitespaceItem, rhs: TokenType.Whitespace.WhitespaceItem) -> Bool {
+public func == (lhs: TokenType.Whitespace.WhitespaceItem, rhs: TokenType.Whitespace.WhitespaceItem) -> Bool {
     switch (lhs, rhs) {
     case (.null, .null):
         return true
@@ -550,7 +550,7 @@ func == (lhs: TokenType.Whitespace.WhitespaceItem, rhs: TokenType.Whitespace.Whi
 }
 // MARK: - Type AutoEquatable
 extension Type: Equatable {}
-func == (lhs: Type, rhs: Type) -> Bool {
+public func == (lhs: Type, rhs: Type) -> Bool {
     switch (lhs, rhs) {
     case (.array(let lhs), .array(let rhs)):
         return lhs == rhs

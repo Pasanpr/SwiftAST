@@ -15,7 +15,7 @@ import Foundation
  in-out-expression → & identifier
  */
 
-internal enum PrefixExpression {
+public enum PrefixExpression {
     case `inout`(identifier: String)
 }
 

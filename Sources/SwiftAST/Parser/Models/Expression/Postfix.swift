@@ -21,7 +21,7 @@ import Foundation
  postfix-expression → optional-chaining-expression
  */
 
-internal enum PostfixExpression {
+public enum PostfixExpression {
     case primary(PrimaryExpression)
     indirect case postfix(expression: PostfixExpression, operator: Token)
     case functionCall
