@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents a Swift statement
-public internal enum Statement {
+public enum Statement {
     case expression(Expression)
     case declaration(Declaration)
     case loopStatement
