@@ -13,3 +13,28 @@ public enum Declaration {
 }
 
 extension Declaration: AutoEquatable {}
+
+extension Declaration {
+    public var identifier: String {
+        switch self {
+        case .constant(let identifier, _, _):
+            return identifier
+        case .variable(let identifier, _, _):
+            return identifier
+        }
+    }
+    
+    public var type: Type? {
+        switch self {
+        case .variable(_, let type, _): return type
+        case .constant(_, let type, _): return type
+        }
+    }
+    
+    public var expression: Expression {
+        switch self {
+        case .constant(_, _, let expression): return expression
+        case .variable(_, _, let expression): return expression
+        }
+    }
+}
