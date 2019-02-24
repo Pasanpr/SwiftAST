@@ -42,7 +42,7 @@ public enum PrimaryExpression {
      playground-literal → #imageLiteral ( resourceName : expression )
      */
     case identifier(String, genericArgs: String?)
-    case literal(String)
+    case literal(Literal)
     case `self`
     case superclass
     case closure
@@ -60,7 +60,7 @@ extension PrimaryExpression: AutoEquatable {}
 extension PrimaryExpression: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .literal(let name): return name
+        case .literal(let literal): return literal.description
         case .identifier(let name, let genericArgs): return name
         default: fatalError()
         }

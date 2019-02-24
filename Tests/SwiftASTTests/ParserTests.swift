@@ -11,8 +11,8 @@ import XCTest
 fileprivate extension Statement {
     static var additionStatement: Statement {
         let op = Token(type: .operator(.addition), line: 1)
-        let lhs = Expression.prefix(operator: nil, rhs: .primary(.literal("1")))
-        let rhs = Expression.prefix(operator: nil, rhs: .primary(.literal("2")))
+        let lhs = Expression.prefix(operator: nil, rhs: .primary(.literal(.integer(1))))
+        let rhs = Expression.prefix(operator: nil, rhs: .primary(.literal(.integer(2))))
         let expr = Expression.binary(operator: op, lhs: lhs, rhs: rhs)
         
         return Statement.expression(expr)
@@ -21,22 +21,22 @@ fileprivate extension Statement {
 
 fileprivate extension Program {
     static var implicitVariableDeclaration: Program {
-        let stmt = Statement.declaration(.variable(identifier: "foo", type: nil, expression: .prefix(operator: nil, rhs: .primary(.literal("bar")))))
+        let stmt = Statement.declaration(.variable(identifier: "foo", type: nil, expression: .prefix(operator: nil, rhs: .primary(.literal(.string("bar"))))))
         return Program(statements: [stmt])
     }
     
     static var explicitVariableDeclaration: Program {
-        let stmt = Statement.declaration(.variable(identifier: "foo", type: Type.typeIdentifier(identifier: "String"), expression: .prefix(operator: nil, rhs: .primary(.literal("bar")))))
+        let stmt = Statement.declaration(.variable(identifier: "foo", type: Type.typeIdentifier(identifier: "String"), expression: .prefix(operator: nil, rhs: .primary(.literal(.string("bar"))))))
         return Program(statements: [stmt])
     }
     
     static var implicitConstantDeclaration: Program {
-        let stmt = Statement.declaration(.constant(identifier: "foo", type: nil, expression: .prefix(operator: nil, rhs: .primary(.literal("bar")))))
+        let stmt = Statement.declaration(.constant(identifier: "foo", type: nil, expression: .prefix(operator: nil, rhs: .primary(.literal(.string("bar"))))))
         return Program(statements: [stmt])
     }
     
     static var explicitConstantDeclaration: Program {
-        let stmt = Statement.declaration(.constant(identifier: "foo", type: Type.typeIdentifier(identifier: "String"), expression: .prefix(operator: nil, rhs: .primary(.literal("bar")))))
+        let stmt = Statement.declaration(.constant(identifier: "foo", type: Type.typeIdentifier(identifier: "String"), expression: .prefix(operator: nil, rhs: .primary(.literal(.string("bar"))))))
         return Program(statements: [stmt])
     }
 }
