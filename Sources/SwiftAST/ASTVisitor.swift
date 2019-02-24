@@ -17,12 +17,12 @@ public protocol ASTVisitor {
     func visit(_ expression: PostfixExpression) throws -> Bool
 }
 
-extension ASTVisitor {
-    func traverse(_ program: Program) throws -> Bool {
+public extension ASTVisitor {
+    public func traverse(_ program: Program) throws -> Bool {
         return try traverse(program.statements)
     }
     
-    func traverse(_ statements: [Statement]) throws -> Bool {
+    public func traverse(_ statements: [Statement]) throws -> Bool {
         for stmt in statements {
             guard try traverse(stmt) else { return false }
         }
@@ -30,7 +30,7 @@ extension ASTVisitor {
         return true
     }
     
-    func traverse(_ statement: Statement) throws -> Bool {
+    public func traverse(_ statement: Statement) throws -> Bool {
         switch statement {
         case .declaration(let declaration):
             return try traverse(declaration)
@@ -38,7 +38,7 @@ extension ASTVisitor {
         }
     }
     
-    func traverse(_ declaration: Declaration) throws -> Bool {
+    public func traverse(_ declaration: Declaration) throws -> Bool {
         return try visit(declaration)
     }
 }
