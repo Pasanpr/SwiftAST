@@ -34,3 +34,12 @@ public enum PostfixExpression {
 }
 
 extension PostfixExpression: AutoEquatable {}
+
+extension PostfixExpression {
+    var type: Type {
+        switch self {
+        case .primary(let primaryExpr): return primaryExpr.type
+        default: fatalError() // Not implemented
+        }
+    }
+}

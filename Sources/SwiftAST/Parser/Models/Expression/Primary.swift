@@ -66,3 +66,12 @@ extension PrimaryExpression: CustomStringConvertible {
         }
     }
 }
+
+extension PrimaryExpression {
+    var type: Type {
+        switch self {
+        case .literal(let literal): return literal.type
+        default: fatalError() // Not implemented
+        }
+    }
+}

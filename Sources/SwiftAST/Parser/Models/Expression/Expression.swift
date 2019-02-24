@@ -25,3 +25,13 @@ public enum Expression {
 }
 
 extension Expression: AutoEquatable {}
+
+extension Expression {
+    var type: Type {
+        switch self {
+        case .primary(let primaryExpr): return primaryExpr.type
+        case .prefix(_, let postfixExpr): return postfixExpr.type
+        default: fatalError() // Not implemented
+        }
+    }
+}

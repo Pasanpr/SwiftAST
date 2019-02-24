@@ -24,10 +24,15 @@ extension Declaration {
         }
     }
     
-    public var type: Type? {
+    public var type: Type {
         switch self {
-        case .variable(_, let type, _): return type
-        case .constant(_, let type, _): return type
+        case .variable(_, let type, _): fatalError() // Not implemented
+        case .constant(_, let type, _):
+            if let type = type {
+                return type
+            } else {
+                return expression.type
+            }
         }
     }
     

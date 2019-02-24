@@ -26,4 +26,14 @@ extension Literal: CustomStringConvertible {
         case .boolean(let bool): return bool.description
         }
     }
+    
+    public var type: Type {
+        switch self {
+        case .string(_): return Type.typeIdentifier(identifier: "String")
+        case .integer(_): return Type.typeIdentifier(identifier: "Int")
+        case .floatingPoint(_): return Type.typeIdentifier(identifier: "Double")
+        case .boolean(_): return Type.typeIdentifier(identifier: "Bool")
+        case .interpolatedString(_): return Type.typeIdentifier(identifier: "String")
+        }
+    }
 }

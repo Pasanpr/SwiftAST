@@ -92,12 +92,9 @@ extension Parser {
         case .identifier(let name):
             let _ = advance()
             return PrimaryExpression.identifier(name, genericArgs: nil)
-        case .literal(let intLiteral):
+        case .literal(let literal):
             let _ = advance()
-            return PrimaryExpression.literal(intLiteral)
-        case .literal(let stringLiteral):
-            let _ = advance()
-            return PrimaryExpression.literal(stringLiteral)
+            return PrimaryExpression.literal(literal)
         default:
             throw ParserError.expectedPrimaryExpression
         }
