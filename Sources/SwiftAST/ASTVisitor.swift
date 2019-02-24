@@ -2,7 +2,7 @@
 //  ASTVisitor.swift
 //  SwiftAST
 //
-//  Created by Pasan Premaratne on 2/23/19.
+//  Created by Pasan Premaratne on 2/24/19.
 //
 
 import Foundation
@@ -42,3 +42,4 @@ public extension ASTVisitor {
         return try visit(declaration)
     }
 }
+
