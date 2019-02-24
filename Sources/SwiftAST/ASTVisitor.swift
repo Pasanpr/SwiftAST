@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ASTVisitor {
+public protocol ASTVisitor {
     func visit(_ declaration: Declaration) throws -> Bool
     
     // Expressions
