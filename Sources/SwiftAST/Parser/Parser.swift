@@ -14,7 +14,7 @@ internal class Parser {
     private var current = 0
     
     /// Returns boolean value to indicate end of file
-    private var isAtEnd: Bool {
+    internal var isAtEnd: Bool {
         return peek().type == .eof
     }
     
@@ -34,9 +34,17 @@ internal class Parser {
     }
     
     internal func parse() throws -> Program {
+        // Handle empty files
+        if isAtEnd {
+            return Program(statements: [])
+        }
+        
         do {
             let stmt = try statement()
             return Program(statements: [stmt])
+        } catch ParserError.expectedStatements {
+          // Empty file aside from comments
+            return Program(statements: [])
         } catch let error {
             fatalError(error.localizedDescription)
         }

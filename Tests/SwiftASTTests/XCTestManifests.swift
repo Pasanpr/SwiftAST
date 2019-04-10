@@ -13,6 +13,8 @@ extension LexerTests {
 
 extension ParserTests {
     static let __allTests = [
+        ("testEmptyFile", testEmptyFile),
+        ("testSingleLineComments", testSingleLineComments),
         ("testAdditionExpr", testAdditionExpr),
         ("testExplicitConstantDeclaration", testExplicitConstantDeclaration),
         ("testExplicitVariableDeclaration", testExplicitVariableDeclaration),

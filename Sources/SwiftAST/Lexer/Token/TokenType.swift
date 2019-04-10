@@ -32,7 +32,7 @@ public enum TokenType {
         
         case whitespaceItem(WhitespaceItem)
         case lineBreak(LineBreak)
-        case comment(String)
+        case comment
         case multiLineComment(String)
     }
 }

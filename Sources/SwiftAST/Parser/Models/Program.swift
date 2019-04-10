@@ -12,3 +12,9 @@ public struct Program {
 }
 
 extension Program: AutoEquatable {}
+
+extension Program {
+    var isEmpty: Bool {
+        return statements.isEmpty
+    }
+}

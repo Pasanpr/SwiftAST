@@ -513,8 +513,8 @@ public func == (lhs: TokenType.Whitespace, rhs: TokenType.Whitespace) -> Bool {
         return lhs == rhs
     case (.lineBreak(let lhs), .lineBreak(let rhs)):
         return lhs == rhs
-    case (.comment(let lhs), .comment(let rhs)):
-        return lhs == rhs
+    case (.comment, .comment):
+        return true
     case (.multiLineComment(let lhs), .multiLineComment(let rhs)):
         return lhs == rhs
     default: return false

@@ -77,8 +77,7 @@ internal final class Lexer {
                     let _ = advance()
                 }
                 
-                let substring = substringInSource(from: start, to: current)
-                return Token(type: .whitespace(.comment(substring)), line: line)
+                return Token(type: .whitespace(.comment), line: line)
             } else if match(expected: "*") {
                 while (peek() != "*" && peekNext() != "/" && !isAtEnd) {
                     let _ = advance()

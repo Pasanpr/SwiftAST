@@ -56,6 +56,30 @@ class ParserTests: XCTestCase {
         #endif
     }
     
+    func testEmptyFile() {
+        let tokens = [
+            Token(type: .eof, line: 1)
+        ]
+        
+        let parser = Parser(tokens: tokens)
+        let program = try! parser.parse()
+        
+        XCTAssertTrue(program.isEmpty)
+    }
+    
+    func testSingleLineComments() {
+        let tokens = [
+            Token(type: .whitespace(.comment), line: 1),
+            Token(type: .eof, line: 1)
+        ]
+        
+        let parser = Parser(tokens: tokens)
+        let program = try! parser.parse()
+        
+        XCTAssertTrue(program.isEmpty)
+
+    }
+    
     func testAdditionExpr() {
         let tokens = [
             Token(type: .literal(.integer(1)), line: 1),

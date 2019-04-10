@@ -133,7 +133,7 @@ class TokenTests: XCTestCase {
         let input = "// This is a comment\n"
         
         let output: [Token] = [
-            Token(type: .whitespace(.comment("// This is a comment")), line: 1),
+            Token(type: .whitespace(.comment), line: 1),
             Token(type: .whitespace(.lineBreak(.newline)), line: 1),
             Token(type: .eof, line: 2)
         ]

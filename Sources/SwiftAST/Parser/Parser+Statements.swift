@@ -9,7 +9,14 @@ import Foundation
 
 extension Parser {
     internal func statement() throws -> Statement {
-        if match(types: .keyword(.declaration(.var))) {
+        if isAtEnd {
+            throw ParserError.expectedStatements
+        }
+        
+        if match(types: .whitespace(.comment)) || match(types: .whitespace(.lineBreak(.newline))) {
+            // Ignore comments and newlines and reevaluate the rest
+            return try statement()
+        } else if match(types: .keyword(.declaration(.var))) {
             return try varDeclaration()
         } else if match(types: .keyword(.declaration(.let))) {
             return try letDeclaration()

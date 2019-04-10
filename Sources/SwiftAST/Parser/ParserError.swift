@@ -8,6 +8,7 @@
 import Foundation
 
 internal enum ParserError: Error {
+    case expectedStatements
     case expectedPrimaryExpression
     case expectedVarDeclaration
     case expectedLetDeclaration

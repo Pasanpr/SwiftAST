@@ -12,7 +12,7 @@ extension TokenType.Whitespace: AutoEquatable {}
 extension TokenType.Whitespace: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .comment(let comment): return comment
+        case .comment: return "//"
         case .lineBreak(let linebreak):
             switch linebreak {
             case .carriageReturn: return "\\r"
