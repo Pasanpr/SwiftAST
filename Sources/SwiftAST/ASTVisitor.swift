@@ -23,6 +23,10 @@ public extension ASTVisitor {
     }
     
     func traverse(_ statements: [Statement]) throws -> Bool {
+        if statements.isEmpty {
+            return false
+        }
+        
         for stmt in statements {
             guard try traverse(stmt) else { return false }
         }
