@@ -61,7 +61,7 @@ extension PrimaryExpression: CustomStringConvertible {
     public var description: String {
         switch self {
         case .literal(let literal): return literal.description
-        case .identifier(let name, let genericArgs): return name
+        case .identifier(let name, _): return name
         default: fatalError()
         }
     }

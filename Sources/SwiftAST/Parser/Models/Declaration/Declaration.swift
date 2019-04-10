@@ -26,7 +26,7 @@ extension Declaration {
     
     public var type: Type {
         switch self {
-        case .variable(_, let type, _): fatalError() // Not implemented
+        case .variable(_, _, _): fatalError() // Not implemented
         case .constant(_, let type, _):
             if let type = type {
                 return type
